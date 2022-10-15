@@ -1,0 +1,5 @@
+name: WaterLib
+version: '${project.version}'
+main: me.waterbroodje.waterlib.WaterLib
+api-version: 1.16
+authors: [Waterbroodje]
