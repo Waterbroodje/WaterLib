@@ -5,18 +5,16 @@
 ### Add WaterLib to your project
 
 ```xml
-	<repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-	</repositories>
+<repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+</repository>
 ```
 
 ```xml
-	<dependency>
-	    <groupId>com.github.Waterbroodje</groupId>
-	    <artifactId>WaterLib</artifactId>
-	    <version>Tag</version>
-	</dependency>
+<dependency>
+    <groupId>com.github.Waterbroodje</groupId>
+    <artifactId>WaterLib</artifactId>
+    <version>main</version>
+</dependency>
 ```
