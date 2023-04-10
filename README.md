@@ -15,6 +15,6 @@
 <dependency>
     <groupId>com.github.Waterbroodje</groupId>
     <artifactId>WaterLib</artifactId>
-    <version>main</version>
+    <version>1.0.0</version>
 </dependency>
 ```
