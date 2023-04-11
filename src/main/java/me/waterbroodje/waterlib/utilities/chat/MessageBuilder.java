@@ -8,7 +8,6 @@ import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.OfflinePlayer;
 
 public class MessageBuilder {
-
     private final String message;
 
     public MessageBuilder(String message) {

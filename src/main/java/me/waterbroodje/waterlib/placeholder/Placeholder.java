@@ -7,7 +7,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class Placeholder {
-
     private Pattern pattern;
 
     public abstract String getRegex();

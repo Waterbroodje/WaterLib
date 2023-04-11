@@ -18,7 +18,6 @@ import java.util.Map;
  * @param <P> The implementing plugin.
  */
 public abstract class CommandBase<P extends Plugin> implements CommandExecutor {
-
     private final Map<String, CommandExecutor> subCommands = new HashMap<>();
     private final P plugin;
 

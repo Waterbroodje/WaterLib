@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PlayerProfile {
-
     private final Player player;
     private final Map<String, Object> data = new HashMap<>();
 

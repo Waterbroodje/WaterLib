@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 public class ServerPlayer {
-
     private final Player player;
 
     public ServerPlayer(Player player) {

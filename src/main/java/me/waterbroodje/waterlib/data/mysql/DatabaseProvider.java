@@ -60,12 +60,14 @@ public class DatabaseProvider {
         return new Builder();
     }
 
-    public void connect() {
+    public DatabaseProvider connect() {
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:mysql://" + hostname + ":" + port + "/" + database);
         config.setUsername(username);
         config.setPassword(password);
         dataSource = new HikariDataSource(config);
+
+        return this;
     }
 
     public void disconnect() {

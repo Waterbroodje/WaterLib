@@ -8,7 +8,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 
 public class PlaceholderExpansion extends me.clip.placeholderapi.expansion.PlaceholderExpansion {
-
     private final List<Placeholder> placeholders = new ArrayList<>();
     private final String identifier;
     private final String author;
