@@ -70,6 +70,10 @@ public class DatabaseProvider {
         return this;
     }
 
+    public QueryBuilder toQueryBuilder() {
+        return new QueryBuilder(this);
+    }
+
     public void disconnect() {
         dataSource.close();
     }
