@@ -1,4 +1,4 @@
-package me.waterbroodje.waterlib.data.mysql;
+package me.waterbroodje.waterlib.data.profile;
 
 import org.bukkit.entity.Player;
 
