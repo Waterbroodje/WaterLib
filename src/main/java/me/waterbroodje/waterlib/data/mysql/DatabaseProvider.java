@@ -2,6 +2,11 @@ package me.waterbroodje.waterlib.data.mysql;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
+
+import java.util.Arrays;
+import java.util.Set;
 
 public class DatabaseProvider {
     private HikariDataSource dataSource;
@@ -60,6 +65,26 @@ public class DatabaseProvider {
         return new Builder();
     }
 
+    public DatabaseProvider connect(Plugin plugin, DatabaseDefaultValues... databaseDefaultValues) {
+        for (DatabaseDefaultValues databaseDefaultValue : databaseDefaultValues) {
+            if (isDefaultValue(databaseDefaultValue)) {
+                Bukkit.getLogger().warning("##########################################");
+                Bukkit.getLogger().warning("## Database not configured... disabling ##");
+                Bukkit.getLogger().warning("##########################################");
+                Bukkit.getPluginManager().disablePlugin(plugin);
+                return this;
+            }
+        }
+
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl("jdbc:mysql://" + hostname + ":" + port + "/" + database);
+        config.setUsername(username);
+        config.setPassword(password);
+        dataSource = new HikariDataSource(config);
+
+        return this;
+    }
+
     public DatabaseProvider connect() {
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:mysql://" + hostname + ":" + port + "/" + database);
@@ -76,6 +101,18 @@ public class DatabaseProvider {
 
     public void disconnect() {
         dataSource.close();
+    }
+
+    private boolean isDefaultValue(DatabaseDefaultValues databaseDefaultValue) {
+        String value = String.valueOf(databaseDefaultValue.getDefaultValue());
+        return switch (databaseDefaultValue) {
+            case PORT -> value.equalsIgnoreCase(String.valueOf(port));
+            case DATABASE -> value.equalsIgnoreCase(String.valueOf(database));
+            case HOSTNAME -> value.equalsIgnoreCase(String.valueOf(hostname));
+            case PASSWORD -> value.equalsIgnoreCase(String.valueOf(password));
+            case USERNAME -> value.equalsIgnoreCase(String.valueOf(username));
+            default -> false;
+        };
     }
 
     public HikariDataSource getDataSource() {
