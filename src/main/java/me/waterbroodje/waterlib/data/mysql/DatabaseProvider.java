@@ -5,9 +5,6 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
-import java.util.Arrays;
-import java.util.Set;
-
 public class DatabaseProvider {
     private HikariDataSource dataSource;
     private final String hostname;
@@ -65,11 +62,11 @@ public class DatabaseProvider {
         return new Builder();
     }
 
-    public DatabaseProvider connect(Plugin plugin, DatabaseDefaultValues... databaseDefaultValues) {
-        for (DatabaseDefaultValues databaseDefaultValue : databaseDefaultValues) {
-            if (isDefaultValue(databaseDefaultValue)) {
+    public DatabaseProvider connect(Plugin plugin, DatabaseDefaultCredentials... databaseDefaultCredentials) {
+        for (DatabaseDefaultCredentials databaseDefaultCredential : databaseDefaultCredentials) {
+            if (isDefaultValue(databaseDefaultCredential)) {
                 Bukkit.getLogger().warning("##########################################");
-                Bukkit.getLogger().warning("## Database not configured... disabling ##");
+                Bukkit.getLogger().warning("#  Database not configured... disabling  #");
                 Bukkit.getLogger().warning("##########################################");
                 Bukkit.getPluginManager().disablePlugin(plugin);
                 return this;
@@ -103,7 +100,7 @@ public class DatabaseProvider {
         dataSource.close();
     }
 
-    private boolean isDefaultValue(DatabaseDefaultValues databaseDefaultValue) {
+    private boolean isDefaultValue(DatabaseDefaultCredentials databaseDefaultValue) {
         String value = String.valueOf(databaseDefaultValue.getDefaultValue());
         return switch (databaseDefaultValue) {
             case PORT -> value.equalsIgnoreCase(String.valueOf(port));

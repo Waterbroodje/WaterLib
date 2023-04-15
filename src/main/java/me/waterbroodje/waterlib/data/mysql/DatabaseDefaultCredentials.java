@@ -1,6 +1,6 @@
 package me.waterbroodje.waterlib.data.mysql;
 
-public enum DatabaseDefaultValues {
+public enum DatabaseDefaultCredentials {
     HOSTNAME("hostname"),
     PORT("3306"),
     DATABASE("database"),
@@ -9,7 +9,7 @@ public enum DatabaseDefaultValues {
 
     private String defaultValue;
 
-    private DatabaseDefaultValues(String defaultValue) {
+    private DatabaseDefaultCredentials(String defaultValue) {
         this.defaultValue = defaultValue;
     }
 
