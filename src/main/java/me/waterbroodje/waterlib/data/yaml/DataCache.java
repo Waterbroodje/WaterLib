@@ -4,21 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DataCache {
-    private final Map<String, Object> data = new HashMap<>();
+    private final Map<Object, Object> data = new HashMap<>();
 
-    public Map<String, Object> getData() {
+    public Map<Object, Object> getData() {
         return data;
     }
 
-    public void addData(String key, Object value) {
+    public void addData(Object key, Object value) {
         data.put(key, value);
     }
 
-    public Object getData(String key) {
+    public Object getData(Object key) {
         return data.get(key);
     }
 
-    public void removeData(String key) {
+    public void removeData(Object key) {
         data.remove(key);
     }
 }
