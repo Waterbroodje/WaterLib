@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * A simple class for implementing sub commands.
- *
+ * <p>
  * `R`egister one of these as the executor for your plugin's root command and then register sub commands to this
  * CommandBase with {@link #registerSubCommand(String, CommandExecutor)}.
  *
@@ -64,7 +64,7 @@ public abstract class CommandBase<P extends Plugin> implements CommandExecutor {
 
     /**
      * Executes the given commands and returns its success.
-     *
+     * <p>
      * Note that the success returned may propagate up to the root command.
      *
      * @param sender Source of the command.

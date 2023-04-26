@@ -5,6 +5,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class DatabaseProvider {
