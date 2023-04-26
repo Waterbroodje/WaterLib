@@ -5,6 +5,8 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
+import java.util.List;
+
 public class DatabaseProvider {
     private HikariDataSource dataSource;
     private final String hostname;
@@ -62,12 +64,10 @@ public class DatabaseProvider {
         return new Builder();
     }
 
-    public DatabaseProvider connect(Plugin plugin, DatabaseDefaultCredentials... databaseDefaultCredentials) {
+    public DatabaseProvider connect(Plugin plugin, List<String> errorMessage, DatabaseDefaultCredentials... databaseDefaultCredentials) {
         for (DatabaseDefaultCredentials databaseDefaultCredential : databaseDefaultCredentials) {
             if (isDefaultValue(databaseDefaultCredential)) {
-                Bukkit.getLogger().warning("##########################################");
-                Bukkit.getLogger().warning("#  Database not configured... disabling  #");
-                Bukkit.getLogger().warning("##########################################");
+                errorMessage.forEach(Bukkit.getLogger()::warning);
                 Bukkit.getPluginManager().disablePlugin(plugin);
                 return this;
             }
