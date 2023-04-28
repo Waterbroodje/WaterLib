@@ -1,6 +1,6 @@
 # WaterLib
 
-![](https://img.shields.io/badge/version-1.0-blue.svg)
+![](https://img.shields.io/badge/version-1.0.0-blue.svg)
 
 ### Add WaterLib to your project
 
@@ -15,6 +15,6 @@
 <dependency>
     <groupId>com.github.Waterbroodje</groupId>
     <artifactId>WaterLib</artifactId>
-    <version>VERSION</version>
+    <version>1.0.0</version>
 </dependency>
 ```
